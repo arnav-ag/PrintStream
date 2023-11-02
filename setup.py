@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='printstream',
-    version='0.1.0',
+    version='0.1.1',
     author='Arnav',
     author_email='arnavaggarwalwork@gmail.com',
     description='A library for enhanced print debugging.',

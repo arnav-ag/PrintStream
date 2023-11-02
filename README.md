@@ -61,6 +61,36 @@ activate()
 deactivate()
 ```
 
+### Additional Configuration Details
+
+Here are some additional details about the configuration options:
+
+- `align`: If `repeat_func_name` is set to `False` and `align` is set to `True`, the output of a single print statement with newlines will be indented such that the output is fully aligned.
+
+`align` and `repeat_func_name` set to `False`:
+```
+[test] Hello World
+How are you?
+```
+
+- `repeat_func_name`: If a print statement has newlines, and this option is set to `True`, it will still print the function name before each line (even within the same print statement).
+
+```
+[test] Hello World
+[test] How are you?
+```
+
+- `colorize`: This option colorizes the function name based on its hash. This introduces some significant overhead (~200%). If anyone has any suggestions on improvements, please submit a PR.
+
+![image-20231103001553308](images/image-20231103001535491.png)
+
+
+- `levels`: This option controls the output level.
+  - `-1`: No output
+  - `0`: Normal print
+  - `1`: Debug activated
+
+
 ## Examples
 Example with `printstream` activated:
 ```python
