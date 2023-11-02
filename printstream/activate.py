@@ -1,7 +1,9 @@
 import builtins
-import sys
 import inspect
+import sys
+
 from termcolor import colored
+
 from .config import get_config
 
 # Store the original print function for restoration later
@@ -19,14 +21,19 @@ def custom_print(*args, **kwargs):
         frame = inspect.currentframe().f_back
         func_name = frame.f_code.co_name
 
+        if config["show_variables"]:
+            local_vars = frame.f_locals
+            variables_info = "[" + ', '.join(f"{k}={v}" for k, v in local_vars.items()) + "]"
+        else:
+            variables_info = ""
+
         # Colorize function name based on hash
         if config["colorize"]:
             color = get_color(func_name)
             func_name = colored(func_name, color)
 
         message = " ".join(str(arg) for arg in args)
-        formatted_message = config["format_str"].format(
-            func_name=func_name, message=message)
+        formatted_message = config["format_str"].format(func_name=func_name, variables_info=variables_info, message=message)
 
         if config["repeat_func_name"]:
             prefix, message = formatted_message.split(" ", 1)
@@ -38,7 +45,7 @@ def custom_print(*args, **kwargs):
             prefix += " "
             message = message.replace("\n", "\n" + " " * len(prefix))
             formatted_message = prefix + message
-
+        
         kwargs['file'] = config["output"] or sys.stdout
         _original_print(formatted_message, **kwargs)
 
