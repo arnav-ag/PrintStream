@@ -12,7 +12,7 @@ def custom_print(*args, **kwargs):
     config = get_config()
     level = config["level"]
     if level == -1:
-        _original_print(*args, **kwargs)
+        pass
     elif level == 0:
         _original_print(*args, **kwargs)
     elif level == 1:
