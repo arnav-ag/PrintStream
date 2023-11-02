@@ -82,7 +82,7 @@ How are you?
 
 - `colorize`: This option colorizes the function name based on its hash. This introduces some significant overhead (~200%). If anyone has any suggestions on improvements, please submit a PR.
 
-![image-20231103001553308](images/image-20231103001535491.png)
+<img src="images/image-20231103001535491.png" alt="image-20231103001553308" style="zoom: 50%;" />
 
 
 - `levels`: This option controls the output level.
