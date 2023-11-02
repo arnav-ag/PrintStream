@@ -34,3 +34,18 @@ def set_colorize(colorize):
 
 def get_config():
     return _config
+
+
+def configure(format_str=None, level=None, output=None, align=None, repeat_func_name=None, colorize=None):
+    if format_str is not None:
+        set_format(format_str)
+    if level is not None:
+        set_level(level)
+    if output is not None:
+        set_output(output)
+    if align is not None:
+        set_align(align)
+    if repeat_func_name is not None:
+        set_repeat_func_name(repeat_func_name)
+    if colorize is not None:
+        set_colorize(colorize)
