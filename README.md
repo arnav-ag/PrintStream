@@ -1,4 +1,4 @@
-# printstream
+# PrintStream
 
 A Python library that enhances the built-in print function for better debugging.
 
