@@ -42,15 +42,15 @@ deactivate()
 ## Configuration
 Configure `printstream` to suit your needs:
 ```python
-from printstream import (
-    set_format, set_level, set_output, set_align, set_repeat_func_name,
-    set_colorize, activate, deactivate
-)
+from printstream import (activate, deactivate, set_align, set_colorize,
+                         set_format, set_level, set_output,
+                         set_repeat_func_name, set_show_variables)tivate, deactivate)
 
 # Configure the debugger
 set_format("[{func_name}] {message}")
 set_align(False)
 set_repeat_func_name(True)
+set_show_variables(False)
 set_colorize(True)
 set_level(1)
 
@@ -98,10 +98,14 @@ from printstream import activate, deactivate
 
 activate()
 
-def test():
+def test_func_name():
     print("Hello World\nHow are you?")
 
-test()
+def test_variable_info(name):
+    print(f"Hello {name}!")
+
+test_func_name()
+test_variable_info("John")
 
 deactivate()
 ```
@@ -110,6 +114,7 @@ Output:
 ```plaintext
 [test] Hello World
 [test] How are you?
+[test2] [name=John] Hello John!
 ```
 
 ## Overhead Measurement

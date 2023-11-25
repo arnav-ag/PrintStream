@@ -5,6 +5,7 @@ _config = {
     "align": True,
     "repeat_func_name": True,
     "colorize": True,
+    "show_variables": False,
 }
 
 
@@ -31,12 +32,15 @@ def set_repeat_func_name(repeat_func_name):
 def set_colorize(colorize):
     _config["colorize"] = colorize
 
+def set_show_variables(show_variables):
+    _config["show_variables"] = show_variables
+
 
 def get_config():
     return _config
 
 
-def configure(format_str=None, level=None, output=None, align=None, repeat_func_name=None, colorize=None):
+def configure(format_str=None, level=None, output=None, align=None, repeat_func_name=None, colorize=None, show_variables=None):
     if format_str is not None:
         set_format(format_str)
     if level is not None:
@@ -49,3 +53,5 @@ def configure(format_str=None, level=None, output=None, align=None, repeat_func_
         set_repeat_func_name(repeat_func_name)
     if colorize is not None:
         set_colorize(colorize)
+    if set_show_variables is not None:
+        set_show_variables(show_variables)
